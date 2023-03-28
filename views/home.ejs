@@ -1,0 +1,71 @@
+<%- include("partials/header")%>
+<header>
+  <h1 id="welcome-message"></h1>
+</header>
+
+  <ul>
+  <li>
+    <a class="datatag" href="/compose" class="add" >Write a blog</a>
+  </li>
+</ul>
+
+
+<% posts.forEach((post)=>{ %>
+ 
+   <div class="box">
+     <form action="/delete" method="post">
+      <h2> <%= post.title %></h2>
+      <span> <%= post.datablog.substring(0,60)+"..." %> <a  href="/<%=post.title%>">read more</a></span>
+      <button type="submit" name="data" value="<%=post._id%>">remove</button>
+     </form>
+   </div>
+<%})%>
+<%- include("partials/footer")%>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+  }
+.datatag{
+    position: fixed;
+    right: 5vw;
+    font-weight: bold;
+    top: 5vh;
+    border: 1px solid rgb(108, 107, 107);
+   box-shadow: 0 0 10px 10px whitesmoke;
+  }
+.box {
+  width: 80%;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: #eee;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.19), 0px 6px 6px rgba(0,0,0,0.23);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 90%;
+  }
+}
+#welcome-message{
+  margin-top: 120px;
+}
+</style>
+<script>
+  const currentTime = new Date();
+const hours = currentTime.getHours();
+
+let welcomeMessage;
+
+if (hours < 12) {
+  welcomeMessage = "Good morning! Welcome to our website.";
+} else if (hours < 18) {
+  welcomeMessage = "Good afternoon! Welcome to our website.";
+} else {
+  welcomeMessage = "Good evening! Welcome to our website.";
+}
+
+document.getElementById("welcome-message").innerHTML = welcomeMessage;
+
+</script>

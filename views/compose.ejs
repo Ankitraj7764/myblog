@@ -1,0 +1,56 @@
+<%- include("partials/header")%>
+<form action="/compose" method="post">
+    <h1>compose</h1>
+   
+    <span>Tittle</span>
+    <input class="textar"  type="text" name="tittle">
+   
+    <textarea class="textar" type="datapost" name="postdata">
+    </textarea>
+    <button type="submit" style="color:rgb(84, 83, 83)"><b>Add</b></button>
+</form>
+
+<%- include("partials/footer")%>
+<style>
+    form {
+  background-color: white;
+  box-shadow: 0px 0px 20px 10px lightgray;
+  padding: 30px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+input[type="text"], textarea {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+button[type="submit"] {
+  background-color: lightgray;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  display: block;
+  width: 50%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    width: 90%;
+  }
+}
+.textar{
+  box-shadow: 0px 0px 20px 10px lightgray;
+}
+
+</style>
